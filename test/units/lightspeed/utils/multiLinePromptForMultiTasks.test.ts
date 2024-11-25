@@ -87,17 +87,19 @@ tasks:
     },
   ];
 
-  testsData.forEach(({ name, promptContent, promptChanges, expectedContent }) => {
-    it(name, () => {
-      const newContent =
-        getContentWithMultiLinePromptForMultiTasksSuggestions(promptContent);
-      if (promptChanges) {
-        assert.equal(newContent, expectedContent);
-      } else {
-        assert.equal(newContent, promptContent);
-      }
-    });
-  });
+  testsData.forEach(
+    ({ name, promptContent, promptChanges, expectedContent }) => {
+      it(name, () => {
+        const newContent =
+          getContentWithMultiLinePromptForMultiTasksSuggestions(promptContent);
+        if (promptChanges) {
+          assert.equal(newContent, expectedContent);
+        } else {
+          assert.equal(newContent, promptContent);
+        }
+      });
+    },
+  );
 });
 
 describe("Test shouldRequestForPromptPosition", () => {
